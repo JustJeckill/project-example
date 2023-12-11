@@ -5,7 +5,7 @@ export function buildDevServer(options: IBuildOptions): DevServerConfiguration {
     const { port } = options;
 
     return {
-        port,
+        port: port ?? 3001,
         open: true,
     }
 }

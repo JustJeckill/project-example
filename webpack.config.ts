@@ -8,7 +8,7 @@ export default (env: IBuildEnv) => {
     const { mode, port } = env;
 
     const paths: IBuildPaths = {
-        entry: path.resolve(__dirname, 'src', 'index.ts'),
+        entry: path.resolve(__dirname, 'src', 'index.tsx'),
         build: path.resolve(__dirname, 'build'),
         html: path.resolve(__dirname, 'public', 'index.html'),
     }
@@ -16,10 +16,10 @@ export default (env: IBuildEnv) => {
     const isDev = mode === 'development';
 
     const config: webpack.Configuration = buildWebpackConfig({
-        mode: mode || 'development',
+        mode,
         paths,
         isDev,
-        port: port || 3000,
+        port,
     });
 
     return config;
