@@ -1,7 +1,8 @@
 import classes from './App.module.scss';
+import {Suspense} from 'react';
 import {Link, Route, Routes} from "react-router-dom";
-import AboutPage from "./AboutPage";
-import ProfilePage from "./ProfilePage";
+import {AboutPageAsync} from "./AboutPageAsync";
+import {ProfilePageAsync} from "./ProfilePageAsync";
 
 const App = () => {
     return (
@@ -14,10 +15,12 @@ const App = () => {
                 <Link to={'/profile'}>Profile Page</Link>
             </nav>
 
-            <Routes>
-                <Route path={'/about'} element={ <AboutPage /> }/>
-                <Route path={'/profile'} element={ <ProfilePage /> }/>
-            </Routes>
+            <Suspense fallback={'Loading...'}>
+                <Routes>
+                    <Route path={'/about'} element={<AboutPageAsync/>}/>
+                    <Route path={'/profile'} element={<ProfilePageAsync/>}/>
+                </Routes>
+            </Suspense>
         </div>
     )
 }
