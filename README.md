@@ -1,4 +1,4 @@
-# project-full-config
+# project-example(template)
 
 
 TECHNOLOGY STACK
